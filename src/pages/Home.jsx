@@ -14,15 +14,13 @@ const VideoBackground = () => (
       muted
       playsInline
       className="absolute inset-0 w-full h-full object-cover"
-      style={{ filter: 'brightness(0.9)' }} // Kat-khalli l-video i-bqa dawi
+      style={{ filter: 'brightness(0.9)' }} 
     >
-      <source src="/bg-luxury.mp4" type="video/mp4" />
+      {/* Fix path bach i-ban f GitHub Pages */}
+      <source src={`${import.meta.env.BASE_URL}bg-luxury.mp4`} type="video/mp4" />
     </video>
     
-    {/* Overlay khfif bzaf ghir bach l-ktiba t-ban, walakin l-video kiy-bqa bayen wa7ed */}
     <div className="absolute inset-0 bg-black/30" /> 
-    
-    {/* Had l-gradient kiy-khalli l-video i-welli k7al ghir f l-7awach (edges) */}
     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
   </div>
 );
@@ -36,14 +34,16 @@ const IntroVideo = ({ onVideoEnd }) => {
       transition={{ duration: 0.3 }}
       className="fixed inset-0 z-[1000] bg-black flex items-center justify-center overflow-hidden"
     >
-      <video
-        autoPlay
-        muted
+      <video 
+        autoPlay 
+        muted 
         playsInline
         onEnded={onVideoEnd}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/intro-3d.mp4" type="video/mp4" />
+        {/* Fix path bach i-7iyed 404 error */}
+        <source src={`${import.meta.env.BASE_URL}intro-3d.mp4`} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
     </motion.div>
   );
@@ -144,7 +144,6 @@ const Home = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Slider Indicators */}
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-4 z-20">
                 {slides.map((_, index) => (
                   <button 
@@ -156,14 +155,10 @@ const Home = () => {
               </div>
             </section>
 
-            {/* ===== FEATURED PRODUCTS SECTION (With Video) ===== */}
+            {/* ===== FEATURED PRODUCTS SECTION ===== */}
             <section className="relative py-32 md:py-48 overflow-hidden bg-black z-20">
-              
-              {/* Zidna l-video background hna */}
               <VideoBackground />
-
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -179,7 +174,6 @@ const Home = () => {
                   </h2>
                 </motion.div>
 
-                {/* Products Grid - Glass Cards */}
                 <motion.div 
                   variants={containerVariants}
                   initial="hidden"
@@ -194,13 +188,11 @@ const Home = () => {
                       className="bg-white/[0.03] backdrop-blur-xl p-4 rounded-[3rem] border border-white/10 shadow-2xl hover:border-blue-500/50 transition-all duration-500 group relative overflow-hidden"
                     >
                       <ProductCard product={product} />
-                      {/* Glow Effect on Hover */}
                       <div className="absolute -inset-1 bg-blue-600/10 rounded-[3.1rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
                     </motion.div>
                   ))}
                 </motion.div>
 
-                {/* View All Button */}
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -217,7 +209,6 @@ const Home = () => {
             {/* ===== FOOTER INFO SECTION ===== */}
             <section className="py-32 bg-black text-white relative z-30 border-t border-white/5">
               <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-20 text-center">
-                
                 {[
                   { icon: <Truck />, title: "Global Shipping", desc: "Premium delivery service" },
                   { icon: <ShieldCheck />, title: "Safe Payment", desc: "100% Secure transactions" },
@@ -238,7 +229,6 @@ const Home = () => {
                     <p className="text-neutral-500 text-[10px] uppercase tracking-widest leading-relaxed">{info.desc}</p>
                   </motion.div>
                 ))}
-
               </div>
             </section>
           </motion.div>
