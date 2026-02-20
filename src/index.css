@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* 1. Jib l-fonts mn Google */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+/* 2. Zid l-font theme nichan hna f blast tailwind.config.js */
+@theme {
+  --font-heading: "Inter", "sans-serif";
+  --font-body: "Roboto", "sans-serif";
+}
+
+
+
+@layer base {
+  body {
+    /* Daba font-body ghadi t-khdem 100% */
+    font-family: var(--font-body);
+    @apply text-gray-900 bg-white;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* 3. Zid had l-utilities bach t-khdem bihom f l-HTML bhal: className="font-heading" */
+@utility font-heading {
+  font-family: var(--font-heading);
+}
+
+@utility font-body {
+  font-family: var(--font-body);
+}
