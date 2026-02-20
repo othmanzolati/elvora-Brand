@@ -123,13 +123,13 @@ const Contact = () => {
             </div>
 
             {/* IMAGE UPDATED SIZE: h-48 changed to h-[400px] or aspect-square */}
-            <div className="rounded-2xl overflow-hidden grayscale border border-slate-100 shadow-lg hover:grayscale-0 transition-all duration-1000">
-              <img
-                src="./public/elevora.jpg"
-                alt="ELVORA Craft"
-                className="w-full h-[450px] object-cover"
-              />
-            </div>
+          <div className="rounded-2xl overflow-hidden grayscale border border-slate-100 shadow-lg hover:grayscale-0 transition-all duration-1000">
+            <img
+              // 7iyedna './public/' o zdna BASE_URL bach t-ban f GitHub Pages
+              src={`${import.meta.env.BASE_URL}elevora.jpg`}
+              alt="ELVORA Craft"
+              className="w-full h-[450px] object-cover"/>
+        </div>
           </motion.div>
 
           {/* FORM SECTION */}

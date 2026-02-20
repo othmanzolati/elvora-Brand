@@ -35,7 +35,7 @@ const About = () => {
           >
             {/* Recommendation: A real photo of you or your studio */}
             <img 
-              src="./public/elvora.jpg" 
+              src={`${import.meta.env.BASE_URL}elvora.jpg`} 
               alt="ELVORA Workshop" 
               className="w-full h-full object-cover brightness-75"
             />

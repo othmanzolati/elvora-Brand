@@ -16,7 +16,7 @@ const VideoBackground = () => (
       className="absolute inset-0 w-full h-full object-cover"
       style={{ filter: 'brightness(0.9)' }} // Kat-khalli l-video i-bqa dawi
     >
-      <source src="/bg-luxury.mp4" type="video/mp4" />
+      <source src="./bg-luxury.mp4" type="video/mp4" />
     </video>
     
     {/* Overlay khfif bzaf ghir bach l-ktiba t-ban, walakin l-video kiy-bqa bayen wa7ed */}
@@ -28,25 +28,21 @@ const VideoBackground = () => (
 );
 
 // --- 2. Intro Video Component ---
-const IntroVideo = ({ onVideoEnd }) => {
+const IntroVideo = ({ onVideoEnd }) => { // <--- Khass had ({ onVideoEnd }) darori t-koun hna
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-[1000] bg-black flex items-center justify-center overflow-hidden"
-    >
+    <motion.div className="fixed inset-0 z-[1000] bg-black ...">
       <video
         autoPlay
         muted
         playsInline
-        onEnded={onVideoEnd}
+        onEnded={onVideoEnd} // <--- Hna fin kiy-tra l-error ila ma-kantch l-fouq
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="./intro-3d.mp4" type="video/mp4" />
+        <source src="intro-3d.mp4" type="video/mp4" />
       </video>
     </motion.div>
   );
+
 };
 
 // --- 3. Main Home Component ---

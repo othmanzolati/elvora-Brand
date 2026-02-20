@@ -1,5 +1,6 @@
 import {
-  BrowserRouter as Router,
+  // Beddelna hada b HashRouter bach n-feksiw 404 f refresh
+  HashRouter as Router, 
   Routes,
   Route,
   Navigate
@@ -33,14 +34,13 @@ import OrderDetails from "./pages/OrderDetails";
 
 const App = () => {
   return (
+    // Dabba l-URL ghadi i-welli fih /#/ (mzyan l GitHub Pages)
     <Router>
-      {/* 1. AdminProvider khassu i-koun hwa l-Parent l-awal bach i-7mi l-session */}
       <AdminProvider>
         <ProductsProvider>
           <CartProvider>
             
             <div className="flex flex-col min-h-screen">
-              {/* Navbar west l-Providers bach i-9der i-3ref wach user m-connecti */}
               <Navbar />
 
               <main className="flex-grow">
@@ -58,7 +58,6 @@ const App = () => {
                   <Route path="/admin/login" element={<AdminLogin />} />
 
                   {/* --- Protected Admin Routes --- */}
-                  {/* Koulchi hna m-7mi b ProtectedRoute */}
                   <Route 
                     path="/admin" 
                     element={
