@@ -36,7 +36,7 @@ const IntroVideo = ({ onVideoEnd }) => {
       transition={{ duration: 0.3 }}
       className="fixed inset-0 z-[1000] bg-black flex items-center justify-center overflow-hidden"
     >
-      {/* <video
+      <video
         autoPlay
         muted
         playsInline
@@ -44,17 +44,6 @@ const IntroVideo = ({ onVideoEnd }) => {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="./intro-3d.mp4" type="video/mp4" />
-      </video> */}
-
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        // Hada hwa l-7el l-logic:
-        src={`${import.meta.env.BASE_URL}intro-3d.mp4`} 
-      >
-        Your browser does not support the video tag.
       </video>
     </motion.div>
   );
